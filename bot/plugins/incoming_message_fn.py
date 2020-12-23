@@ -139,8 +139,7 @@ async def incoming_compress_message_f(bot, update):
         )
       )
       now = datetime.datetime.now()
-      chat_id = "LOG_CHANNEL"
-      await bot.send_message(chat_id, f"**Bot Gone Busy !!** \n\nA Process Started at {now}", parse_mode="markdown")
+      await bot.send_message(chat_id.LOG_CHANNEL, f"**Bot Gone Busy !!** \n\nA Process Started at {now}", parse_mode="markdown")
       LOGGER.info(video)
       if( video is None ):
         try:
@@ -251,8 +250,7 @@ async def incoming_compress_message_f(bot, update):
           caption=upload.caption.replace('{}', uploaded_time)
         )
         now = datetime.datetime.now()
-        chat_id = "LOG_CHANNEL"
-        await bot.send_message(chat_id, f"**Bot Become Free Now !!** \n\nProcess Done at {now}", parse_mode="markdown")
+        await bot.send_message(chat_id.LOG_CHANNEL, f"**Bot Become Free Now !!** \n\nProcess Done at {now}", parse_mode="markdown")
       except:
         pass
     else:
