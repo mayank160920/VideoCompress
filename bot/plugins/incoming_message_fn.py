@@ -4,6 +4,8 @@
 
 # the logging things
 
+import os
+import datetime
 import logging
 logging.basicConfig(
     level=logging.DEBUG,
@@ -16,7 +18,8 @@ import os, time, asyncio, json
 from bot.localisation import Localisation
 from bot import (
   DOWNLOAD_LOCATION, 
-  AUTH_USERS
+  AUTH_USERS,
+  LOG_CHANNEL
 )
 from bot.helper_funcs.ffmpeg import (
   convert_video,
@@ -135,6 +138,9 @@ async def incoming_compress_message_f(bot, update):
           d_start
         )
       )
+      now = datetime.datetime.now()
+      chat_id = "LOG_CHANNEL"
+      await bot.send_message(chat_id, f"**Bot Gone Busy !!** \n\nA Process Started at {now}", parse_mode="markdown")
       LOGGER.info(video)
       if( video is None ):
         try:
@@ -244,6 +250,9 @@ async def incoming_compress_message_f(bot, update):
         await upload.edit_caption(
           caption=upload.caption.replace('{}', uploaded_time)
         )
+        now = datetime.datetime.now()
+        chat_id = "LOG_CHANNEL"
+        await bot.send_message(chat_id, f"**Bot Become Free Now !!** \n\nProcess Done at {now}", parse_mode="markdown")
       except:
         pass
     else:
