@@ -15,7 +15,8 @@ class Config(object):
             should_prompt=True
         ).split()
     )
-    LOG_CHANNEL = get_config("LOG_CHANNEL", -1001339757699)
+    #LOG_CHANNEL = get_config("LOG_CHANNEL", )
+    LOG_CHANNEL = -1001339757699
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = get_config("DOWNLOAD_LOCATION", "/app/downloads")
     # Telegram maximum file upload size
